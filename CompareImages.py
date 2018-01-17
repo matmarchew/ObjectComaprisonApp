@@ -1,4 +1,6 @@
 import numpy as np
+from tkinter import *
+import tkinter as tk
 import cv2
 
 def compareImage(pathImg1, pathImg2):
@@ -37,7 +39,13 @@ def compareImage(pathImg1, pathImg2):
     showInformation(good.__len__())
 
 def showInformation(matchedPoints):
-    if(matchedPoints > 30):
-        print("The images could be present the same object");
+    toplevel = Toplevel()
+    toplevel.title('result')
+    toplevel.geometry('500x25')
+    label = None
+    if (matchedPoints > 30):
+        label = tk.Label(toplevel, text="The images could be present the same object", fg='green',)
     else:
-        print("The images couldn't be present the same object");
+        label = tk.Label(toplevel, text="The images couldn't be present the same object", fg='red')
+    label.pack()
+    toplevel.focus_set()
