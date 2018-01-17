@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 from PIL import Image, ImageTk
+from CompareImages import compareImage
 
 class MainGui(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
@@ -26,7 +27,7 @@ class MainGui(tk.Frame):
         secondImageButton = tk.Button(parent, text='Select second image', height=2, width=30, command=lambda: self.loadImage(1))
         secondImageButton.grid(row=0, column=1, padx=2, pady=2)
 
-        compareButton = tk.Button(parent, text='Compare images', height=2, width=30)
+        compareButton = tk.Button(parent, text='Compare images', height=2, width=30, command=lambda: compareImage(self.firstImage, self.secondImage))
         compareButton.grid(row=2, column=0, padx=2, pady=2, columnspan=2)
 
     def loadImage(self, k):
