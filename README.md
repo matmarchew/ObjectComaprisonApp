@@ -1,1 +1,1 @@
-# ObjectComaprisonApp
+# ObjectRecognitionApp
